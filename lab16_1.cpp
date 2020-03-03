@@ -3,28 +3,34 @@ using namespace std;
 
 int main(){
 	int nA,nB;
-		
 	
 	cout << "Length of A: ";
 	cin >> nA;
 	
-	int *A = new int;
-	cout << "Input Array A: ";
-	for(int i=0; i < nA; i++) cin >> A[i];
+	int *A = new int[nA];
+	 cout << "Input Array A: ";
+	for(int i=0; i < nA; i++)
+	 {
+	 cin >> A[i];
+	 }
 	
 	cout << "Length of B: ";
 	cin >> nB;
 	
-	int *B = new int;
-	cout << "Input Array B: ";
-	for(int i=0; i < nB; i++) cin >> B[i];
+	int *B = new int[nB];
+	cout << "Input Array B: ";	
+	for(int i=0; i < nB; i++) 
+	{
+	cin >> B[i];
+	}
 	
-	int **C = new int *[nA];
-	for(int i=0; i < nA; i++) C[i] = new int [nB];
+	int **C = new int*[nB];
+	for(int i=0; i < nA; i++) 
+	C[i] = new int;
 	
 	for(int i=0; i < nA; i++){
 		for(int j=0; j < nB; j++) {
-			C[i][j] = A[i]*B[j];
+		  C[i][j] = A[i]*B[j];
 		}
 	}
 	
@@ -41,9 +47,10 @@ int main(){
 		}
 		cout << "\n";
 	}
-
 	
-     delete A,B,C; 
-
+    delete  [] A , B;
+	for (int i = 0 ; i<nA ; i++) delete [] C[i] ;
+	delete [] C;
+	
 	return 0;
 }

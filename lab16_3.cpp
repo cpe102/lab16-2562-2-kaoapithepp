@@ -21,32 +21,25 @@ int main(){
 	return 0;
 }
 
-vector<int> randomVector(int x)
-{
-	vector<int> a(x);
-	for(int i=0;i<x;i++)
-	{
-		a[i]=rand()%10;
+vector<int> randomVector(int X){
+	srand(time(0));
+	vector<int> a(X);
+	for(int i=0;i<X;i++){
+		a[i] = rand()%10;
 	}
 	return a;
-}
-
-void showVector(vector<int>y)
-{
-	cout << "[";
-	for(int i=0;i<y.size();i++)
-	{
-		cout << y[i] <<" ";
-	}
-	cout << "]";
 }
 
 int dotProduct(vector<int>a,vector<int>b)
 {
 	int sum=0;
-	for(int i=0;i<a.size();i++)
-		{
-			sum+=a[i]*b[i];
-		}
+	for(int i=0;i<a.size();i++) sum+=a[i]*b[i];
 	return sum;
+}
+
+void showVector(vector<int>y)
+{
+	cout << "[";
+	for(int i=0;i<y.size();i++) cout << y[i] <<" ";
+	cout << "]";
 }
